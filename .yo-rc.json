@@ -1,0 +1,9 @@
+{
+    "generator-node": {
+      "promptValues": {
+        "authorName": "Sergej Riewe",
+        "authorEmail": "sergej.riewe@ditegra.de",
+        "authorUrl": "https://ditegra.de"
+      }
+    }
+  }
