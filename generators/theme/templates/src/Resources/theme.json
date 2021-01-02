@@ -1,0 +1,61 @@
+{
+  "name": "<%= name %>",
+  "author": "ditegra GmbH",
+  "description": {
+    "en-GB": "individual theme <%= name %> developed by ditegra GmbH",
+    "de-DE": "Individuelles Theme <%= name %> entwickelt von ditegra GmbH"
+  },
+  "previewMedia": "app/storefront/dist/assets/theme-preview.png",
+  "views": [
+     "@Storefront",
+     "@Plugins",
+     "@<%= name %>"
+  ],
+  "style": [
+    "app/storefront/src/scss/overrides.scss",
+    "@Storefront",
+    "app/storefront/src/scss/base.scss"
+  ],
+  "script": [
+    "@Storefront",
+    "app/storefront/dist/storefront/js/diga-<%= shortname %>-theme.js"
+  ],
+  "asset": [
+    "@Storefront",
+    "app/storefront/src/assets"
+  ],
+  "config": {
+    "blocks": {
+      "digasettings": {
+        "label": {
+          "en-GB": "diga theme settings",
+          "de-DE": "diga theme einstellungen"
+        }
+      }
+    },
+    "fields": {
+      "sw-color-brand-primary": {
+        "label": {
+          "en-GB": "Primary colour",
+          "de-DE": "Primärfarbe"
+        },
+        "type": "color",
+        "value": "#008490",
+        "editable": true,
+        "block": "themeColors",
+        "order": 100
+      },
+      "sw-color-brand-secondary": {
+        "label": {
+          "en-GB": "Secondary colour",
+          "de-DE": "Sekundärfarbe"
+        },
+        "type": "color",
+        "value": "#526e7f",
+        "editable": true,
+        "block": "themeColors",
+        "order": 200
+      }
+    }
+  }  
+}

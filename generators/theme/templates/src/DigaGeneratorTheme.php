@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace DigaGeneratorTheme;
+namespace <%= name %>;
 
 use Shopware\Core\Framework\Plugin;
 use Shopware\Storefront\Framework\ThemeInterface;
 
-class DigaGeneratorTheme extends Plugin implements ThemeInterface
+class <%= name %> extends Plugin implements ThemeInterface
 {
     public function getThemeConfigPath(): string
     {

@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_header %}
+    <div class="top-info-bar">
+        <div class="container">
+            <div class="header-block"> 
+                <div class="top-services">
+                    <div>{{ "diga_<%= shortname %>.freeShippingGermanyWide"|trans|sw_sanitize }}</div>
+                    <div>{{ "diga_<%= shortname %>.moneyBackWarranty"|trans|sw_sanitize }}</div>
+                    <div>{{ "diga_<%= shortname %>.freeHotline"|trans|sw_sanitize }}</div>
+                </div>      
+            </div>  
+        </div>
+    </div>
+
+    {{parent()}}
+    
+{% endblock %}

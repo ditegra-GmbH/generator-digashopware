@@ -1,0 +1,8 @@
+{
+    "diga_<%= shortname %>": {
+        "description": "",
+        "freeShippingGermanyWide": "KOSTENLOSER VERSAND DEUTSCHLANDWEIT",
+        "moneyBackWarranty": "GELD-ZURÜCK-GARANTIE",
+        "freeHotline": "KOSTENLOSE HOTLINE"
+    }
+}

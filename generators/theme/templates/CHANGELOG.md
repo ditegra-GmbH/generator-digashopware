@@ -6,8 +6,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Shopware 6 Plugin generator with ditegra GmbH specific info
-- Shopware 6 Theme generator with ditegra GmbH specific info
 ### Changed
 ### Removed
 
@@ -16,5 +14,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
-[Unreleased]: https://dev.azure.com/ditegrase/Diga%20Tools/_git/generator-digashopware
-[1.0.0]: 
+[Unreleased]: URL to git Repo here
+[1.0.0]: URL to git Repo here

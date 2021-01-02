@@ -1,0 +1,33 @@
+
+.top-info-bar {
+    color: black;
+    background-color: $sw-color-brand-primary;
+    margin-top: 0;
+    min-height: 40px;
+    padding: 5px 0 5px 0;
+
+    .top-services {
+        text-align: center;
+        padding-top: 6px;
+        
+        div:first-of-type{
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+
+    .top-info-bar{
+        .top-services {
+            text-align: center;
+
+            display: flex;
+            justify-content: space-between;
+            
+            div:first-of-type{
+                display: initial;
+            }
+        }
+    }
+}

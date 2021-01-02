@@ -1,6 +1,6 @@
 {
-  "name": "diga/<%= shortname %>-plugin",
-  "description": "<%= shortname %> Plugin",
+  "name": "diga/<%= shortname %>-theme",
+  "description": "<%= shortname %> Theme",
   "version": "v0.0.1",
   "type": "shopware-platform-plugin",
   "license": "proprietary",

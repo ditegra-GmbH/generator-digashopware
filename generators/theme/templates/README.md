@@ -1,0 +1,4 @@
+# <%= shortname %> Theme
+
+## Snippets
+
