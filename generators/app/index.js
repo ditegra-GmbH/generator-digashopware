@@ -41,6 +41,9 @@ module.exports = class extends Generator {
         );
         this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(pluginName + '/CHANGELOG.md'));
         
+        // Copy gulpfile from template folder
+        this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath(pluginName + '/gulpfile.js'));
+        
         //src Folder
         this.fs.copyTpl(
             this.templatePath('src/DigaShopwareGenerator.php'),
