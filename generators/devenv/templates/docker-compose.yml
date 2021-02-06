@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+    shopware:
+      image: dockware/dev:<%= version %>
+      container_name: <%= containername %>
+      ports:
+         - "80:80"
+         - "3306:3306"
+         - "22:22"
+         - "8888:8888"
+         - "9999:9999"
+      volumes:
+         - "db_volume:/var/lib/mysql"
+         - "shop_volume:/var/www/html"
+      networks:
+         - web
+      environment:
+         - XDEBUG_ENABLED=1
+         - XDEBUG_REMOTE_HOST=host.docker.internal      
+volumes:
+  db_volume:
+    driver: local
+  shop_volume:
+    driver: local
+
+networks:
+  web:
+    external: false
