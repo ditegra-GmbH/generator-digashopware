@@ -28,7 +28,7 @@ module.exports = class extends Generator {
             this.templatePath('composer.json'),
             this.destinationPath(themeName + '/composer.json'),
             { 
-                shortname: name,
+                shortname: name.toLowerCase(),
                 name: themeName,
                 description: this.answers.description
             }
