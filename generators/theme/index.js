@@ -42,6 +42,10 @@ module.exports = class extends Generator {
             }
         );
         this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(themeName + '/CHANGELOG.md'));
+
+        // Copy gulpfile from template folder
+        this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath(themeName + '/gulpfile.js'));
+        this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath(themeName + '/package.json'));
         
         /*
          * src
@@ -89,8 +93,8 @@ module.exports = class extends Generator {
         let configpath = path + 'config/';
         this.fs.copy(this.templatePath('src/Resources/config/plugin.png'), this.destinationPath(configpath + 'plugin.png'));
         this.fs.copyTpl(this.templatePath('src/Resources/config/services.xml'), this.destinationPath(configpath + 'services.xml'));
-        this.fs.copyTpl(this.templatePath('src/Resources/config/config.xml'), this.destinationPath(configpath + 'config.xml'));
-        
+        this.fs.copyTpl(this.templatePath('src/Resources/config/config.xml'), this.destinationPath(configpath + 'config.xml'));        
+
         /*
          * src/Resources/snippet/
          */
