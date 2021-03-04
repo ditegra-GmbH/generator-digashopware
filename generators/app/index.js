@@ -44,6 +44,7 @@ module.exports = class extends Generator {
         // Copy gulpfile from template folder
         this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath(pluginName + '/gulpfile.js'));
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath(pluginName + '/package.json'));
+        this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath(pluginName + '/.gitignore'));
         
         //src Folder
         this.fs.copyTpl(
