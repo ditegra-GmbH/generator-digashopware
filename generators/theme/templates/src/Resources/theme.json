@@ -14,6 +14,7 @@
   "style": [
     "app/storefront/src/scss/overrides.scss",
     "@StorefrontBootstrap",
+    "@Plugins",
     "app/storefront/src/scss/base.scss"
   ],
   "script": [
