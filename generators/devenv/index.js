@@ -28,6 +28,10 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('loregi.code-workspace'),
             this.destinationPath(name + '/' + name + '.code-workspace'));
+
+        this.fs.copyTpl(
+            this.templatePath('README.md'),
+            this.destinationPath(name + '/README.md'));
         
         this.fs.copyTpl(
             this.templatePath('docker-compose.yml'),
