@@ -1,6 +1,6 @@
 {
   "name": "generator-digashopware",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ditegra shopware 6 plugins and theme generator",
   "files": [
     "generators"
@@ -9,6 +9,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^4.12.0"
+    "yeoman-generator": "^4.12.0",
+    "yosay": "^2.0.2"
   }
 }

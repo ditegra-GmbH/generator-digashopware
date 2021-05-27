@@ -1,11 +1,11 @@
 {
-  "name": "diga/<%= shortname %>-plugin",
+  "name": "<%= prefix %>/<%= shortname %>-plugin",
   "description": "<%= shortname %> Plugin",
   "version": "v0.0.1",
   "type": "shopware-platform-plugin",
   "license": "proprietary",
   "authors": [{
-    "name": "ditegra GmbH"
+    "name": "<%= company %>"
   }],
   "autoload": {
     "psr-4": {
@@ -18,22 +18,22 @@
       "de-DE": "<%= description %>",
       "en-GB": "<%= description %>"
     },
-    "copyright": "ditegra GmbH",
+    "copyright": "<%= company %>",
     "description": {
-      "de-DE": "",
-      "en-GB": ""
+      "de-DE": "<%= description %>",
+      "en-GB": "<%= description %>"
     },
     "manufacturerLink": {
-      "de-DE": "https://ditegra.de",
-      "en-GB": "https://ditegra.de"
+      "de-DE": "<%= manufacturerLink %>",
+      "en-GB": "<%= manufacturerLink %>"
     },
     "supportLink": {
-      "de-DE": "https://ditegra.de/kontakt",
-      "en-GB": "https://ditegra.de/kontakt"
+      "de-DE": "<%= supportLink %>",
+      "en-GB": "<%= supportLink %>"
     }
   },
   "require": {
-    "shopware/core": "~6.3",
-    "shopware/storefront": "~6.3"
+    "shopware/core": "~6.4",
+    "shopware/storefront": "~6.4"
   }
 }

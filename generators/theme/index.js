@@ -3,6 +3,7 @@ var Generator = require('yeoman-generator');
 module.exports = class extends Generator {
 
     async prompting() {
+
         this.answers = await this.prompt([
             {
                 type: "input",

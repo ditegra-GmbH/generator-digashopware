@@ -1,1 +1,1 @@
-# <%= shortname %> Plugin
+# <%= shortname %> App

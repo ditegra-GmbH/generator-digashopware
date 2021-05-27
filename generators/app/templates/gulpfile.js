@@ -20,7 +20,6 @@ function createtmp(){
 }
 
 function zipplugin(){
-
     var json = JSON.parse(fs.readFileSync('./composer.json'));
     process.chdir('./tmp');
 
