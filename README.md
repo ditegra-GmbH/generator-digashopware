@@ -1,39 +1,26 @@
 # generator-digashopware
-## Install
-    clone repo https://dev.azure.com/ditegrase/Diga%20Tools/_git/generator-digashopware
-    npm i
-    npm link
+since we always create and copy the same files for new shopware projects, themes or apps, we have built a simple generator for ourselves. This is now to be gradually expanded with useful generators for shopware 6 development.
 
-? npm install --global yo generator-digashopware
+## Getting Started
+
+- Dependencies:
+  - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
+  - Yeoman: `npm install -g yo`
+- Install: 
+ - `clone repo https://github.com/ditegra-GmbH/generator-digashopware`
+ - `npm i`
+ - `npm link`
+- Run: `yo digashopware`
 
 ## Usage
-
-Create diga plugin: 
-
+Create plugin: 
     yo digashopware
 
-Create diga Theme:
-
+Create theme:
     yo digashopware:theme
 
-Add files needed for development environment:
-
+prepare development environment:
     yo digashopware:devenv
 
-
-# create local Shopware 6 / dockware DEV ENV
-1) Inside you repos folder einen neuen folder z.B. mydevprj
-2) File docker-compose.yml  mit angepasstem => container_name: mydevprj
-3) create src folder
-4) create mydevprj.code-workspace 
-5) create .vscode folder inside src/.vscode
-	.vscode with Files: sftp.json & launch.json
-6) 	create twig.yaml inside src\config\packages
-
-## setup
-docker-compose up -d
-docker cp mydevprj:/var/www/html/. src\
-
-if error: symlink ..\phpunit\phpunit\phpunit C:\repos\mydevprj\src\vendor\bin\phpunit: A required privilege is not held by the client.
-
-get all Files via a FTP Client of your choise
+## License
+Copyright 2021 ditegra GmbH
