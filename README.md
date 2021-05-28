@@ -4,13 +4,37 @@ since we always create and copy the same files for new shopware projects, themes
 ## Getting Started
 
 - Dependencies:
-  - Node.js: `brew install node` for Mac OS X, `choco install nodejs` for Windows OS
+  - Node.js
   - Yeoman: `npm install -g yo`
 - Install: 
- - `clone repo https://github.com/ditegra-GmbH/generator-digashopware`
- - `npm i`
- - `npm link`
+    - `clone repo https://github.com/ditegra-GmbH/generator-digashopware`
+    - `npm i`
+    - `npm link`
 - Run: `yo digashopware`
+
+## development environment features
+
+```
+[projectname]*
+│   [projectname].code-workspace
+│   docker-compose.yml
+|   README.md
+│
+└───src/
+    │
+    └───.vscode/
+    |    │   launch.json
+    |    │   sftp.json
+    |    
+    |___config
+         │
+         └───packages/
+             │   twig.yaml
+```
+
+*projectname == docker container name!
+
+
 
 ## Usage
 Create plugin: 

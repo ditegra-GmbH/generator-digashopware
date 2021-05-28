@@ -24,14 +24,12 @@ module.exports = class extends Generator {
                 ]
             }
         );
-
         //based on anwser we need to choose a different 
         // generator and ask for more infos from the customer
         this.generator = this.answers.generator;
         switch (this.answers.generator) {
-            case 'devEnv':
-                this.log("generator: ", this.answers.generator);
-
+            case 'devEnv':                
+                this.composeWith(require.resolve('../devenv'));
                 break;
             case 'sw6app':                
                 this.answers = await this.prompt([
@@ -72,7 +70,7 @@ module.exports = class extends Generator {
                 ]);
                 break;
             case 'sw6theme':
-                this.log("generator: ", this.answers.generator);
+                this.composeWith(require.resolve('../theme'));
                 break;
             default:
                 break;
@@ -81,8 +79,6 @@ module.exports = class extends Generator {
 
     writing() {
     
-        this.log("generator: ", this.generator);
-
         if(this.generator == "sw6app"){
             let name = this.answers.name;
             let pluginName = this.answers.prefix + name;

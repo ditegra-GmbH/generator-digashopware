@@ -7,13 +7,15 @@ module.exports = class extends Generator {
             {
                 type: "input",
                 name: "name",
-                message: "Your development environment name"
+                message: "Your development environment name",
+                store: true
             },
             {
                 type: "input",
                 name: "dockwareversion",
-                message: "Please provide your dockware version like 6.3.5.0 (default)"
-            }
+                message: "Please provide your dockware version like 6.4.0.0 (default)",
+                store: true
+            },
         ]);
     }
 
@@ -22,11 +24,11 @@ module.exports = class extends Generator {
         let name = this.answers.name;
         let version = this.answers.dockwareversion;
         if(!version){
-            version = '6.3.5.0';
+            version = '6.4.0.0';
         }
 
         this.fs.copyTpl(
-            this.templatePath('loregi.code-workspace'),
+            this.templatePath('diga.code-workspace'),
             this.destinationPath(name + '/' + name + '.code-workspace'));
 
         this.fs.copyTpl(
@@ -40,6 +42,17 @@ module.exports = class extends Generator {
                 containername: name,
                 version: version
             }
+        );
+
+        // Copy gulpfile & package.json the app zip creation helper tasks
+        this.fs.copyTpl(
+            this.templatePath('src/custom/plugins/gulpfile.js'), 
+            this.destinationPath(name + '/src/custom/plugins/gulpfile.js')
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/custom/plugins/package.json'), 
+            this.destinationPath(name + '/src/custom/plugins/package.json')
         );
 
         this.fs.copyTpl(
