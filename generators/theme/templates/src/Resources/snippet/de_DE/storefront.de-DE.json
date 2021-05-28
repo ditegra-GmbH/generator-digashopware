@@ -1,5 +1,5 @@
 {
-    "diga_<%= shortname %>": {
+    "<%= prefix %>_<%= shortname %>": {
         "description": "",
         "freeShippingGermanyWide": "KOSTENLOSER VERSAND DEUTSCHLANDWEIT",
         "moneyBackWarranty": "GELD-ZURÜCK-GARANTIE",

@@ -27,6 +27,7 @@ module.exports = class extends Generator {
         //based on anwser we need to choose a different 
         // generator and ask for more infos from the customer
         this.generator = this.answers.generator;
+
         switch (this.answers.generator) {
             case 'devEnv':                
                 this.composeWith(require.resolve('../devenv'));
@@ -82,11 +83,10 @@ module.exports = class extends Generator {
         if(this.generator == "sw6app"){
             let name = this.answers.name;
             let pluginName = this.answers.prefix + name;
-    
             // Move all the files and replace vars
             this.fs.copyTpl(
                 this.templatePath('composer.json'),
-                this.destinationPath(pluginName + '/composer.json'),
+                this.destinationPath(this.contextRoot + '/' + pluginName + '/composer.json'),
                 { 
                     prefix: this.answers.prefix,
                     company: this.answers.company,
@@ -100,37 +100,34 @@ module.exports = class extends Generator {
     
             this.fs.copyTpl(
                 this.templatePath('README.md'),
-                this.destinationPath(pluginName + '/README.md'),
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/README.md'),
                 { 
                     shortname: name,
                 }
             );
-            this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(pluginName + '/CHANGELOG.md'));
+            this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(this.contextRoot + '/' +pluginName + '/CHANGELOG.md'));
             
-            // Copy gulpfile from template folder
-            this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath(pluginName + '/gulpfile.js'));
-            this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath(pluginName + '/package.json'));
-            this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath(pluginName + '/.gitignore'));
+            this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath(this.contextRoot + '/' +pluginName + '/.gitignore'));
             
             //src Folder
             this.fs.copyTpl(
                 this.templatePath('src/DigaShopwareGenerator.php'),
-                this.destinationPath(pluginName + '/src/' + pluginName + '.php'),
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/src/' + pluginName + '.php'),
                 { 
                     name: pluginName,
                 }
             );
-            this.fs.copyTpl(this.templatePath('src/Resources/config/config.xml'), this.destinationPath(pluginName + '/src/Resources/config/config.xml'));
-            this.fs.copy(this.templatePath('src/Resources/config/plugin.png'), this.destinationPath(pluginName + '/src/Resources/config/plugin.png'));
-            this.fs.copyTpl(this.templatePath('src/Resources/config/services.xml'), this.destinationPath(pluginName + '/src/Resources/config/services.xml'));            
+            this.fs.copyTpl(this.templatePath('src/Resources/config/config.xml'), this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/config/config.xml'));
+            this.fs.copy(this.templatePath('src/Resources/config/plugin.png'), this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/config/plugin.png'));
+            this.fs.copyTpl(this.templatePath('src/Resources/config/services.xml'), this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/config/services.xml'));            
             
-            this.fs.copyTpl(this.templatePath('src/Resources/snippet/de_DE/storefront.de-DE.json'), this.destinationPath(pluginName + '/src/Resources/snippet/de_DE/storefront.de-DE.json'),
+            this.fs.copyTpl(this.templatePath('src/Resources/snippet/de_DE/storefront.de-DE.json'), this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/snippet/de_DE/storefront.de-DE.json'),
             { 
                 prefix: this.answers.prefix.toLowerCase(),
                 shortname: name.toLowerCase(),
             });
 
-            this.fs.copyTpl(this.templatePath('src/Resources/snippet/en_GB/storefront.en-GB.json'), this.destinationPath(pluginName + '/src/Resources/snippet/en_GB/storefront.en-GB.json'),
+            this.fs.copyTpl(this.templatePath('src/Resources/snippet/en_GB/storefront.en-GB.json'), this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/snippet/en_GB/storefront.en-GB.json'),
             { 
                 prefix: this.answers.prefix.toLowerCase(),
                 shortname: name.toLowerCase(),

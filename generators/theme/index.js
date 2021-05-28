@@ -7,20 +7,44 @@ module.exports = class extends Generator {
         this.answers = await this.prompt([
             {
                 type: "input",
+                name: "prefix",
+                message: "your manufacturer prefix",
+                store: true
+            },
+            {
+                type: "input",
+                name: "company",
+                message: "company information for composer.json",
+                store: true
+            },
+            {
+                type: "input",
+                name: "manufacturerLink",
+                message: "manufacturer link for composer.json",
+                store: true
+            },
+            {
+                type: "input",
+                name: "supportLink",
+                message: "support link for composer.json",
+                store: true
+            },
+            {
+                type: "input",
                 name: "name",
-                message: "Your Theme Name, without Diga Prefix!"
+                message: "your theme name (without prefix please)"
             },
             {
                 type: "input",
                 name: "description",
-                message: "Theme description"
+                message: "provide a short theme description"
             }
         ]);
     }
 
     writing() {
         let name = this.answers.name;
-        let themeName = "Diga" + name + "Theme";
+        let themeName = this.answers.prefix + name + "Theme";
 
         /*
          * Root Theme Folder
@@ -29,9 +53,13 @@ module.exports = class extends Generator {
             this.templatePath('composer.json'),
             this.destinationPath(themeName + '/composer.json'),
             { 
+                prefix: this.answers.prefix,
+                company: this.answers.company,
                 shortname: name.toLowerCase(),
                 name: themeName,
-                description: this.answers.description
+                description: this.answers.description,
+                manufacturerLink: this.answers.manufacturerLink,
+                supportLink: this.answers.supportLink
             }
         );
         let path = themeName;
@@ -66,7 +94,10 @@ module.exports = class extends Generator {
             this.destinationPath(path + 'theme.json'),
             { 
                 name: themeName,
-                shortname: name.toLowerCase()
+                shortname: name.toLowerCase(),
+                prefix: this.answers.prefix.toLowerCase(),
+                company: this.answers.company,
+                description: this.answers.description
             }
         );
         
@@ -100,10 +131,13 @@ module.exports = class extends Generator {
         this.fs.copyTpl(this.templatePath('src/Resources/snippet/de_DE/storefront.de-DE.json'), this.destinationPath(snippetpath + 'de_DE/storefront.de-DE.json'),
         { 
             shortname: name.toLowerCase(),
+            prefix: this.answers.prefix.toLowerCase()
+
         });
         this.fs.copyTpl(this.templatePath('src/Resources/snippet/en_GB/storefront.en-GB.json'), this.destinationPath(snippetpath + 'en_GB/storefront.en-GB.json'),
         { 
             shortname: name.toLowerCase(),
+            prefix: this.answers.prefix.toLowerCase()
         });
 
         /*
@@ -113,6 +147,7 @@ module.exports = class extends Generator {
         this.fs.copyTpl(this.templatePath('src/Resources/views/storefront/base.html.twig'), this.destinationPath(viewspath + 'storefront/base.html.twig'),
         { 
             shortname: name.toLowerCase(),
+            prefix: this.answers.prefix.toLowerCase()
         });
     }
 };

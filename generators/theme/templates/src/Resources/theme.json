@@ -1,9 +1,9 @@
 {
   "name": "<%= name %>",
-  "author": "ditegra GmbH",
+  "author": "<%= company %>",
   "description": {
-    "en-GB": "individual theme <%= name %> developed by ditegra GmbH",
-    "de-DE": "Individuelles Theme <%= name %> entwickelt von ditegra GmbH"
+    "en-GB": "<%= description %>",
+    "de-DE": "<%= description %>"
   },
   "previewMedia": "app/storefront/dist/assets/theme-preview.png",
   "views": [
@@ -19,7 +19,7 @@
   ],
   "script": [
     "@Storefront",
-    "app/storefront/dist/storefront/js/diga-<%= shortname %>-theme.js"
+    "app/storefront/dist/storefront/js/<%= prefix %>-<%= shortname %>-theme.js"
   ],
   "asset": [
     "@Storefront",
@@ -27,10 +27,10 @@
   ],
   "config": {
     "blocks": {
-      "digasettings": {
+      "<%= prefix %>settings": {
         "label": {
-          "en-GB": "diga theme settings",
-          "de-DE": "diga theme einstellungen"
+          "en-GB": "<%= prefix %> theme settings",
+          "de-DE": "<%= prefix %> theme einstellungen"
         }
       }
     },
