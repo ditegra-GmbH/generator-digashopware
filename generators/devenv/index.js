@@ -3,6 +3,7 @@ var Generator = require('yeoman-generator');
 module.exports = class extends Generator {
 
     async prompting() {
+        
         this.answers = await this.prompt([
             {
                 type: "input",
@@ -26,7 +27,7 @@ module.exports = class extends Generator {
         if(!version){
             version = '6.4.0.0';
         }
-
+        
         this.fs.copyTpl(
             this.templatePath('diga.code-workspace'),
             this.destinationPath(name + '/' + name + '.code-workspace'));

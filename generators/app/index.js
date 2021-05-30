@@ -29,10 +29,11 @@ module.exports = class extends Generator {
         this.generator = this.answers.generator;
 
         switch (this.answers.generator) {
-            case 'devEnv':                
+            case 'devEnv':             
                 this.composeWith(require.resolve('../devenv'));
                 break;
-            case 'sw6app':                
+            case 'sw6app':
+                this.log(this.contextRoot);
                 this.answers = await this.prompt([
                     {
                         type: "input",
@@ -71,7 +72,11 @@ module.exports = class extends Generator {
                 ]);
                 break;
             case 'sw6theme':
-                this.composeWith(require.resolve('../theme'));
+                this.log(this.contextRoot);           
+                this.composeWith(require.resolve('../theme'), {
+                   callerPath:  this.contextRoot,
+                   destinationRoot: this.contextRoot
+                });
                 break;
             default:
                 break;
@@ -80,7 +85,12 @@ module.exports = class extends Generator {
 
     writing() {
     
-        if(this.generator == "sw6app"){
+        if(this.generator == "sw6app"){     
+            
+            this.log(this.contextRoot);
+            
+            return;
+
             let name = this.answers.name;
             let pluginName = this.answers.prefix + name;
             // Move all the files and replace vars

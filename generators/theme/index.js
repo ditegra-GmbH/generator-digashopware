@@ -44,14 +44,17 @@ module.exports = class extends Generator {
 
     writing() {
         let name = this.answers.name;
-        let themeName = this.answers.prefix + name + "Theme";
-
+        let themeName = this.answers.prefix + name;
+        let ourContextRoot = this.contextRoot; // this.options.callerPath;
+        // this.destinationRoot(this.options.callerPath);
+        this.log(ourContextRoot);
+        
         /*
          * Root Theme Folder
          */
         this.fs.copyTpl(
-            this.templatePath('composer.json'),
-            this.destinationPath(themeName + '/composer.json'),
+            this.templatePath('composer.json'),     
+            this.destinationPath(ourContextRoot + '/' + themeName + '/composer.json'),
             { 
                 prefix: this.answers.prefix,
                 company: this.answers.company,
@@ -62,16 +65,16 @@ module.exports = class extends Generator {
                 supportLink: this.answers.supportLink
             }
         );
-        let path = themeName;
+        let path = ourContextRoot + '/' + themeName;
         this.fs.copyTpl(
-            this.templatePath('README.md'),
-            this.destinationPath(themeName + '/README.md'),
+            this.templatePath('README.md'),            
+            this.destinationPath(ourContextRoot + '/' + themeName + '/README.md'),
             { 
                 shortname: name,
             }
         );
-        this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(themeName + '/CHANGELOG.md'));
-        this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath(themeName + '/.gitignore'));
+        this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(ourContextRoot + '/' + themeName + '/CHANGELOG.md'));
+        this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath(ourContextRoot + '/' + themeName + '/.gitignore'));
         
         /*
          * src
