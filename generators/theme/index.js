@@ -47,7 +47,8 @@ module.exports = class extends Generator {
         let themeName = this.answers.prefix + name;
         let ourContextRoot = this.contextRoot; // this.options.callerPath;
         // this.destinationRoot(this.options.callerPath);
-        this.log(ourContextRoot);
+        // this.log(ourContextRoot);
+        // this.log(this.options.destinationRoot);
         
         /*
          * Root Theme Folder
@@ -56,7 +57,7 @@ module.exports = class extends Generator {
             this.templatePath('composer.json'),     
             this.destinationPath(ourContextRoot + '/' + themeName + '/composer.json'),
             { 
-                prefix: this.answers.prefix,
+                prefix: this.answers.prefix.toLowerCase(),
                 company: this.answers.company,
                 shortname: name.toLowerCase(),
                 name: themeName,

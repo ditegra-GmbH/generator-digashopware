@@ -6,6 +6,7 @@ since we always create and copy the same files for new shopware projects, themes
 - Dependencies:
   - Node.js
   - Yeoman: `npm install -g yo`
+  - VSCode extensions for devenv SFTP https://github.com/liximomo/vscode-sftp
 - Install: 
     - `clone repo https://github.com/ditegra-GmbH/generator-digashopware`
     - `npm i`

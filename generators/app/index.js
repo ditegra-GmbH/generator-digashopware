@@ -33,7 +33,7 @@ module.exports = class extends Generator {
                 this.composeWith(require.resolve('../devenv'));
                 break;
             case 'sw6app':
-                this.log(this.contextRoot);
+               
                 this.answers = await this.prompt([
                     {
                         type: "input",
@@ -71,8 +71,8 @@ module.exports = class extends Generator {
                     }
                 ]);
                 break;
-            case 'sw6theme':
-                this.log(this.contextRoot);           
+            case 'sw6theme':       
+                // this.log(this.contextRoot); 
                 this.composeWith(require.resolve('../theme'), {
                    callerPath:  this.contextRoot,
                    destinationRoot: this.contextRoot
@@ -85,12 +85,7 @@ module.exports = class extends Generator {
 
     writing() {
     
-        if(this.generator == "sw6app"){     
-            
-            this.log(this.contextRoot);
-            
-            return;
-
+        if(this.generator == "sw6app"){
             let name = this.answers.name;
             let pluginName = this.answers.prefix + name;
             // Move all the files and replace vars
@@ -98,7 +93,7 @@ module.exports = class extends Generator {
                 this.templatePath('composer.json'),
                 this.destinationPath(this.contextRoot + '/' + pluginName + '/composer.json'),
                 { 
-                    prefix: this.answers.prefix,
+                    prefix: this.answers.prefix.toLowerCase(),
                     company: this.answers.company,
                     shortname: name.toLowerCase(),
                     name: pluginName,
