@@ -10,6 +10,7 @@ services:
          - "22:22"
          - "8888:8888"
          - "9999:9999"
+         - "9998:9998"
       volumes:
          - "db_volume:/var/lib/mysql"
          - "shop_volume:/var/www/html"

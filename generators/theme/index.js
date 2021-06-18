@@ -110,7 +110,7 @@ module.exports = class extends Generator {
          */
         let appdistpath = path + 'app/storefront/dist';
         this.fs.copy(this.templatePath('src/Resources/app/storefront/dist/assets/theme-preview.png'), this.destinationPath(appdistpath + '/assets/theme-preview.png'));
-        this.fs.copyTpl(this.templatePath('src/Resources/app/storefront/dist/storefront/js/diga-generator-theme.js'), this.destinationPath(appdistpath + '/storefront/js/diga-'+ name.toLowerCase() +'-theme.js'));
+        this.fs.copyTpl(this.templatePath('src/Resources/app/storefront/dist/storefront/js/diga-generator-theme.js'), this.destinationPath(appdistpath + '/storefront/js/'+this.answers.prefix.toLowerCase() +'-'+ name.toLowerCase() +'-theme.js'));
 
         let appsrcpath = path + 'app/storefront/src';
         this.fs.copyTpl(this.templatePath('src/Resources/app/storefront/src/main.js'), this.destinationPath(appsrcpath + '/main.js'));
