@@ -32,6 +32,7 @@ function createtmp(){
               '!./gulpfile.js',
               '!./package.json',
               '!./package-lock.json',
+              '!./**/node_modules/**',
               '!./node_modules/**'])
         .pipe(gulp.dest(destPath));
 }
