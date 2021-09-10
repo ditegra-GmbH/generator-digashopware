@@ -6,6 +6,7 @@ services:
       container_name: <%= containername %>
       ports:
          - "80:80"
+         - "443:443"
          - "3306:3306"
          - "22:22"
          - "8888:8888"
@@ -14,17 +15,18 @@ services:
       volumes:
          - "db_volume:/var/lib/mysql"
          - "shop_volume:/var/www/html"
-      networks:
-         - web
+      # networks:
+      #    - web
       environment:
-         - XDEBUG_ENABLED=1
-         - XDEBUG_REMOTE_HOST=host.docker.internal      
+         - XDEBUG_ENABLED=1  
+         - XDEBUG_REMOTE_HOST=localhost
+         - PHP_IDE_CONFIG=idekey=VSCODE
 volumes:
   db_volume:
     driver: local
   shop_volume:
     driver: local
 
-networks:
-  web:
-    external: false
+# networks:
+#   web:
+#     external: false
