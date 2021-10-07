@@ -4,6 +4,7 @@ var path = require('path');
 const { series } = require('gulp');
 const del = require('del');
 var fs = require('fs');
+var parser = require('xml2json');
 
 function getAppName(){
     var appName, i = process.argv.indexOf("--app");
@@ -13,17 +14,29 @@ function getAppName(){
     return appName;
 }
 
+function getAppType(){
+    var appType = 'plugin', i = process.argv.indexOf("--appType");
+    if(i>-1) {
+        appType = process.argv[i+1] == 'app' ? 'app' : 'plugin';
+    }
+    return appType;
+}
+
 function createtmp(){
 
     var appName = getAppName();
+    
+
     if(!appName) {
         console.log("usage: gulp bundle --app [AppFolderName]" );
     }
+
     // change directory to plugin folder
     process.chdir("./" + appName);
     
-    var appFolderName = path.basename(process.cwd());  
-    var json = JSON.parse(fs.readFileSync('./composer.json'));    
+    var appFolderName = path.basename(process.cwd());
+    var json = getDefinition();
+    
     var destPath = './tmp/'+ appFolderName + "-" + json.version + '/' + appFolderName ;
 
     return gulp.src(['./**', 
@@ -31,10 +44,28 @@ function createtmp(){
               '!./CHANGELOG.md',
               '!./gulpfile.js',
               '!./package.json',
+              '!./EULA.md',
               '!./package-lock.json',
-              '!./**/node_modules/**',
               '!./node_modules/**'])
         .pipe(gulp.dest(destPath));
+}
+
+function getDefinition(){
+    
+    var appType = getAppType();
+
+    if(appType == 'plugin'){
+        var json = JSON.parse(fs.readFileSync('./composer.json')); 
+        version = json.version;
+    }
+    else{
+        var json = JSON.parse(parser.toJson(fs.readFileSync('./manifest.xml'))); 
+        version = json.manifest.meta.version;
+    }
+
+    return {
+        version
+    }
 }
 
 function zipplugin(){
@@ -45,7 +76,7 @@ function zipplugin(){
     }
     var currentFolderName = path.basename(process.cwd());
 
-    var json = JSON.parse(fs.readFileSync('./composer.json'));
+    var json = getDefinition();
     process.chdir('./tmp');
     
     var zipSrc = './'+ currentFolderName + "-" + json.version + '/**';
