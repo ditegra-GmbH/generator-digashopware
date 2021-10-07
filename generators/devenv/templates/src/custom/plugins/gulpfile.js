@@ -15,20 +15,22 @@ function getAppName(){
 }
 
 function getAppType(){
-    var appType = 'plugin', i = process.argv.indexOf("--appType");
-    if(i>-1) {
-        appType = process.argv[i+1] == 'app' ? 'app' : 'plugin';
-    }
-    return appType;
+
+    return __dirname.indexOf('custom/apps')!=-1 ? 'app' : 'plugin';
+
+    // var appType = 'plugin', i = process.argv.indexOf("--appType");
+    // if(i>-1) {
+    //     appType = process.argv[i+1] == 'app' ? 'app' : 'plugin';
+    // }
+    // return appType;
 }
 
 function createtmp(){
 
     var appName = getAppName();
     
-
     if(!appName) {
-        console.log("usage: gulp bundle --app [AppFolderName]" );
+        console.log("usage: gulp bundle --app [AppFolderName] --appType [plugin|app]" );
     }
 
     // change directory to plugin folder
