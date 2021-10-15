@@ -1,31 +1,73 @@
 const gulp = require('gulp');
 const zip = require('gulp-zip');
+const flog = require('fancy-log');
 var path = require('path');
+const ansi = require('ansi-colors');
 const { series } = require('gulp');
 const del = require('del');
 var fs = require('fs');
 var parser = require('xml2json');
 
-function getAppName(){
-    var appName, i = process.argv.indexOf("--app");
+var appName = null;
+var appType = null;
+var appFolder = null;
+
+function setAppName(){
+    var i = process.argv.indexOf("--app");
     if(i>-1) {
         appName = process.argv[i+1].replace(/\\/g, '');
     }
-    return appName;
 }
 
-function getAppType(){
-    return __dirname.indexOf('custom/apps')!=-1 ? 'app' : 'plugin';
+function setAppType(){
+
+    if(fs.existsSync('./plugins/' + appName))
+        appType = 'plugin';
+
+    if(fs.existsSync('./apps/' + appName))
+        appType = 'app';
+
+}
+
+function setAppFolder(){
+
+    if(fs.existsSync('./plugins/' + appName))
+        appFolder = './plugins/' + appName;
+
+    if(fs.existsSync('./apps/' + appName))
+        appFolder = './apps/' + appName;
+
 }
 
 function createtmp(){
-    var appName = getAppName();
+
+    setAppName();
+    
     if(!appName) {
-        console.log("usage: gulp bundle --app [AppFolderName] --appType [plugin|app]");
+        flog.error(ansi.red("ERROR: missing parameter 'app', (usage: gulp bundle --app [AppFolderName])"));
+        process.exit(0);
     }
 
+    // check if right folder
+    if(!fs.existsSync('./plugins')){
+        flog.error(ansi.red("ERROR: wrong base folder, this bundle must be located in html/custom"));
+        process.exit(0);
+    }
+
+    setAppFolder();
+
+    // check for existance
+    if(!appFolder){
+        flog.error(ansi.red("ERROR: invalid app parameter, can't find: '" + appName  + "' plugin or app folder"));
+        process.exit(0);
+    }
+
+    setAppType();
+
+    flog.info(ansi.green("App folder found, app type, '" + appType  + "' detected ..."));
+
     // change directory to plugin folder
-    process.chdir("./" + appName);
+    process.chdir(appFolder);
     
     var appFolderName = path.basename(process.cwd());
     var json = getDefinition();
@@ -36,7 +78,6 @@ function createtmp(){
 
 function getDefinition(){
     
-    var appType = getAppType();
     let files = [
         './**', 
         '!./{.git, .git/**}', 
@@ -74,17 +115,15 @@ function getDefinition(){
 
 function zipplugin(){
     
-    var appName = getAppName();
-    if(!appName) {
-        console.log("usage: gulp bundle --app [AppFolderName]" );
-    }
     var currentFolderName = path.basename(process.cwd());
 
     var json = getDefinition();
     process.chdir('./tmp');
     
     var zipSrc = './'+ currentFolderName + "-" + json.version + '/**';
-    var zipTarget = currentFolderName + "-" + json.version + '.zip';
+    var zipTarget = 'plugins/' + currentFolderName + "-" + json.version + '.zip';
+
+    flog.info(ansi.green("Zip created: " + zipTarget));
 
     return gulp.src([zipSrc, '!./tmp/**'])
         .pipe(zip(zipTarget))
@@ -92,9 +131,8 @@ function zipplugin(){
 }
 
 function cleanup(){
-    console.log("cleanup: ");
     process.chdir('..');
-    console.log(process.cwd());
+    flog.info(ansi.green("Cleanup: " + process.cwd()));
     return del('./tmp', {force:true});
 }
 
