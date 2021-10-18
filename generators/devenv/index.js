@@ -47,12 +47,12 @@ module.exports = class extends Generator {
 
         // Copy gulpfile & package.json the app zip creation helper tasks
         this.fs.copyTpl(
-            this.templatePath('src/custom/plugins/gulpfile.js'), 
+            this.templatePath('src/custom/gulpfile.js'), 
             this.destinationPath(name + '/src/custom/gulpfile.js')
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/custom/plugins/package.json'), 
+            this.templatePath('src/custom/package.json'), 
             this.destinationPath(name + '/src/custom/package.json')
         );
 
