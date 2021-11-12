@@ -121,7 +121,7 @@ function zipplugin(){
     process.chdir('./tmp');
     
     var zipSrc = './'+ currentFolderName + "-" + json.version + '/**';
-    var zipTarget = 'plugins/' + currentFolderName + "-" + json.version + '.zip';
+    var zipTarget = '' + currentFolderName + "-" + json.version + '.zip';
 
     flog.info(ansi.green("Zip created: " + zipTarget));
 
