@@ -9,7 +9,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^4.12.0",
+    "yeoman-generator": "^5.5.2",
     "yosay": "^2.0.2"
   }
 }
