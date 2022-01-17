@@ -19,7 +19,7 @@
   ],
   "script": [
     "@Storefront",
-    "app/storefront/dist/storefront/js/<%= prefix %>-<%= shortname %>-theme.js"
+    "app/storefront/dist/storefront/js/<%= prefix %>-<%= shortname %>.js"
   ],
   "asset": [
     "@Storefront",

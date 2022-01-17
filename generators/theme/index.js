@@ -93,12 +93,14 @@ module.exports = class extends Generator {
          * src/Resources
          */
         path = path + 'Resources/';
+        var nameParts = name.split(/(?=[A-Z])/);
+        var shortName = nameParts.join('-').toLowerCase();
         this.fs.copyTpl(
             this.templatePath('src/Resources/theme.json'),
             this.destinationPath(path + 'theme.json'),
             { 
                 name: themeName,
-                shortname: name.toLowerCase(),
+                shortname: shortName,
                 prefix: this.answers.prefix.toLowerCase(),
                 company: this.answers.company,
                 description: this.answers.description
@@ -110,7 +112,7 @@ module.exports = class extends Generator {
          */
         let appdistpath = path + 'app/storefront/dist';
         this.fs.copy(this.templatePath('src/Resources/app/storefront/dist/assets/theme-preview.png'), this.destinationPath(appdistpath + '/assets/theme-preview.png'));
-        this.fs.copyTpl(this.templatePath('src/Resources/app/storefront/dist/storefront/js/diga-generator-theme.js'), this.destinationPath(appdistpath + '/storefront/js/'+this.answers.prefix.toLowerCase() +'-'+ name.toLowerCase() +'-theme.js'));
+        this.fs.copyTpl(this.templatePath('src/Resources/app/storefront/dist/storefront/js/diga-generator-theme.js'), this.destinationPath(appdistpath + '/storefront/js/'+ this.answers.prefix.toLowerCase() +'-'+ shortName +'.js'));
 
         let appsrcpath = path + 'app/storefront/src';
         this.fs.copyTpl(this.templatePath('src/Resources/app/storefront/src/main.js'), this.destinationPath(appsrcpath + '/main.js'));
