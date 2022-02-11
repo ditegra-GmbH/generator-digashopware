@@ -75,5 +75,15 @@ module.exports = class extends Generator {
             this.templatePath('src/config/packages/shopware.yaml'),
             this.destinationPath(name + '/src/config/packages/shopware.yaml')
         );
+
+        this.fs.copyTpl(
+            this.templatePath('src/messenger_consume.sh'),
+            this.destinationPath(name + '/src/messenger_consume.sh')
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/scheduled_task_run.sh'),
+            this.destinationPath(name + '/src/scheduled_task_run.sh')
+        );
     }
 };

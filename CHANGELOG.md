@@ -6,16 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- add devenv generation with stuff we allways need to prepare for dockware.io based devenv
-- Shopware 6 Plugin generator with ditegra GmbH specific info
-- Shopware 6 Theme generator with ditegra GmbH specific info
 ### Changed
 ### Removed
 
-## [1.0.0] - 2021-mm-dd
+## [0.0.5] - 11.02.2022
 ### Added
+- shopware.yaml file to config
+- messenger consume and scheduled task run shell scripts
 ### Changed
 ### Removed
+
+- add devenv generation with stuff we allways need to prepare for dockware.io based devenv
+- Shopware 6 Plugin generator with ditegra GmbH specific info
+- Shopware 6 Theme generator with ditegra GmbH specific info
 
 [Unreleased]: https://dev.azure.com/ditegrase/Diga%20Tools/_git/generator-digashopware
 [1.0.0]: 
