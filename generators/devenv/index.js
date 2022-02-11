@@ -70,5 +70,10 @@ module.exports = class extends Generator {
             this.templatePath('src/config/packages/twig.yaml'),
             this.destinationPath(name + '/src/config/packages/twig.yaml')
         );
+
+        this.fs.copyTpl(
+            this.templatePath('src/config/packages/shopware.yaml'),
+            this.destinationPath(name + '/src/config/packages/shopware.yaml')
+        );
     }
 };
