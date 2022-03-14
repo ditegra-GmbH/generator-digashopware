@@ -13,7 +13,7 @@
   ],
   "style": [
     "app/storefront/src/scss/overrides.scss",
-    "@StorefrontBootstrap",
+    "@Storefront",
     "@Plugins",
     "app/storefront/src/scss/base.scss"
   ],
