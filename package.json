@@ -1,6 +1,6 @@
 {
   "name": "generator-digashopware",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ditegra shopware 6 apps, devenv and theme generator",
   "files": [
     "generators"

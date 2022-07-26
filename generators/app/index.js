@@ -139,6 +139,23 @@ module.exports = class extends Generator {
                 prefix: this.answers.prefix.toLowerCase(),
                 shortname: name.toLowerCase(),
             });
+
+            //UnitTest sample
+            this.fs.copyTpl(
+                this.templatePath('tests/Services/SampleTest.php'),
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/tests/Services/SampleTest.php'),
+                { 
+                    name: pluginName,
+                }
+            );
+
+            this.fs.copyTpl(
+                this.templatePath('phpunit.xml'),
+                this.destinationPath(this.contextRoot + '/' + pluginName + '/phpunit.xml'),
+                { 
+                    name: pluginName,
+                }
+            );
         }
     }
 };

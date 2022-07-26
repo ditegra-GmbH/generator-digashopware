@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [0.0.6] - 25.07.2022
+### Added
+- generators\app\templates\makefile
+- generators\app\templates\phpstan.neon
+- generators\app\templates\composer.json
+- generators\app\templates\phpunit.xml
+- generators\app\templates\tests\Services\SampleTest.php
+### Changed
+- add dev dependencies generators\app\templates\composer.json
+- generators\app\templates\README.md 
+
 ## [0.0.5] - 11.02.2022
 ### Added
 - shopware.yaml file to config
