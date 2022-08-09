@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [0.0.7] - 25.07.2022
+- update yeoman-generator to latest version
+- remove yosay dependencie because of security issues
+
 ## [0.0.6] - 25.07.2022
 ### Added
 - generators\app\templates\makefile

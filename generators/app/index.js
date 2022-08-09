@@ -1,10 +1,7 @@
 var Generator = require('yeoman-generator');
-var yosay = require('yosay');
 module.exports = class extends Generator {
 
     async prompting() {
-
-        this.log(yosay('Welcome to ditegras Shopware 6 generator!'));
 
         this.answers = await this.prompt({
             type: 'list',
