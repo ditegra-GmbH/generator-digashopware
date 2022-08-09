@@ -86,7 +86,11 @@ function getDefinition(){
         '!./package.json',
         '!./EULA.md',
         '!./package-lock.json',
-        '!./node_modules/**'
+        '!./node_modules/**',
+        '!./makefile',
+        '!./vendor/**',
+        '!./phpstan.neon',
+        '!./composer.lock'
     ];
 
     if(appType == 'plugin'){
