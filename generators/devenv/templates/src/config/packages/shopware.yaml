@@ -1,3 +1,7 @@
 shopware:
+    api:
+        max_limit: 1000 # change limit from 500 to 1000
     admin_worker:
         enable_admin_worker: false
+    auto_update:
+        enabled: false # disable auto update
