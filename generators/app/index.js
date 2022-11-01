@@ -110,7 +110,15 @@ module.exports = class extends Generator {
             this.fs.copyTpl(this.templatePath('CHANGELOG.md'), this.destinationPath(this.contextRoot + '/' +pluginName + '/CHANGELOG.md'));
             
             this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath(this.contextRoot + '/' +pluginName + '/.gitignore'));
-            this.fs.copyTpl(this.templatePath('makefile'), this.destinationPath(this.contextRoot + '/' +pluginName + '/makefile'));
+            
+            this.fs.copyTpl(
+                this.templatePath('makefile'),
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/makefile'),
+                { 
+                    name: pluginName,
+                }
+            );
+            
             this.fs.copyTpl(this.templatePath('phpstan.neon'), this.destinationPath(this.contextRoot + '/' +pluginName + '/phpstan.neon'));
             
             //src Folder

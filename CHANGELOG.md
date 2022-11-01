@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [0.0.8] - 25.07.2022
+- extend makefile with more commands
+- update phpstan dependency and configuration
+
 ## [0.0.7] - 25.07.2022
 - update yeoman-generator to latest version
 - remove yosay dependencie because of security issues
