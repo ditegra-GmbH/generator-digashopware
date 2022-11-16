@@ -1,4 +1,4 @@
-# <%= name %>
+# Diga<%= shortname %>
 _One-liner explaining the purpose of the product_
 
 ## Description:
