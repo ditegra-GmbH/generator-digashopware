@@ -1,42 +1,30 @@
-# <%= shortname %> App
+# <%= name %>
+_One-liner explaining the purpose of the product_
 
-# Based o the Dockware Sample Plugin
-This is our sample plugin to get you started with Shopware development
-as fast as possible.
+## Description:
+_Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
-It's already installed and activated.
-It also comes with a sample unit test and everything else you need.
+## Highlights:
+-
+- 
+- 
 
-## Concept
-The sample plugin has its own vendors to allow you a plug and play installation
-for non-development Shopware shops. Just upload and enjoy!
+## Features:
+-
+-
+-
 
-For this you might need production dependencies.
-For development purpose on the other hand, you might want some dev-only-dependencies.
-And for this we've created some make commands.
+## Installation manual:
+_Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
-## Deliver Plugin
-Please run the following command before delivering the plugin.
-It will install only production dependencies for a plug'n'play installation.
+## Supported SW Version:
+_Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
-```
-make prod
-```
+## Dependence's:
+_Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
-## Unit Tests
-If you want to run the unit tests, start by installing all
-dev-dependencies and then run the command.
+## Technical concept:
+_Link:_
 
-```
-make dev
-make test
-```
-
-## Static Analyzer
-If you want to run a separate static analyzer for this plugin,
-install the dev-dependencies and run this command.
-
-```
-make dev
-make stan
-```
+## License
+Copyright 2022 ditegra GmbH

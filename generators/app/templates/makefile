@@ -33,7 +33,13 @@ build: ## Installs the plugin, and builds the artifacts using the Shopware build
 	cd /var/www/html && php bin/console plugin:refresh
 	cd /var/www/html && ./bin/build-js.sh
 	cd /var/www/html && php bin/console theme:refresh
-	cd /var/www/html && php bin/console theme:compile
+	touch tempversion.txt
+	../../../bin/console --version > tempversion.txt
+	sed -i 's/[^0-9.]*//g' ./tempversion.txt
+	sed -i '1s/^/- Last compiled on SW /' ./tempversion.txt
+	sed -i '/## Supported SW Version:/{n; s/.*//}' ./README.md
+	sed -i -e '/## Supported SW Version:/r tempversion.txt' ./README.md
+	rm -rf ./tempversion.txt
 
 zip:
 	$(eval VERS := $(shell cat composer.json | jq '.version'))
