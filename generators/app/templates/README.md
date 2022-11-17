@@ -20,7 +20,7 @@ _Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
 ## Supported SW Version:
 _Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
-## Dependence's:
+## Dependencies:
 _Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
 ## Technical concept:

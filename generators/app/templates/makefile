@@ -23,9 +23,9 @@ stan: ## Starts the PHPStan Analyser
 	php ./vendor/bin/phpstan --memory-limit=1G analyse .
 
 clean: ## Cleans all dependencies
-	rm -rf vendor/*
-	rm -rf ./src/Resources/app/administration/node_modules/*
-	rm -rf ./src/Resources/app/storefront/node_modules/*
+	rm -rf ./vendor
+	rm -rf ./src/Resources/app/administration/node_modules
+	rm -rf ./src/Resources/app/storefront/node_modules
 
 build: ## Installs the plugin, and builds the artifacts using the Shopware build commands (requires Shopware)
 	cd /var/www/html && php bin/console plugin:refresh
