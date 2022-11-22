@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [0.0.9] - 22.11.2022
+- app: info-block added
+
 ## [0.0.8] - 25.07.2022
 - extend makefile with more commands
 - update phpstan dependency and configuration
