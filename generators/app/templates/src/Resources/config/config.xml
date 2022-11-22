@@ -6,7 +6,7 @@
         <title>General</title>
         <title lang="de-DE">Allgemein</title>
         <input-field type="bool">
-            <name><%= name %>active</name>
+            <name>pluginactive</name>
             <label>Active</label>
             <label lang="de-DE">Aktiv</label>
         </input-field>
