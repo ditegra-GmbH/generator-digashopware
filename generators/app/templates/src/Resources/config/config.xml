@@ -3,11 +3,16 @@
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
 
     <card>
-        <title>Active</title>
+        <title>General</title>
+        <title lang="de-DE">Allgemein</title>
         <input-field type="bool">
-            <name>pluginactive</name>
+            <name><%= name %>active</name>
             <label>Active</label>
             <label lang="de-DE">Aktiv</label>
         </input-field>
+
+        <component name="diga-info">
+            <name>digaInfo</name>
+        </component>
     </card>
 </config>

@@ -1,0 +1,13 @@
+{
+    "diga-info": {
+        "help": "Hilfe",
+        "documentation": "Dokumentation", 
+        "feedback": "Feedback",
+        "feedbackText": "Möchtest du uns dein Feedback und Verbesserungsvorschläge zur Erweiterung mitteilen? Nutze unser ",
+        "feedbackForm": "Feedback Formular",
+        "helpText": "Benötigst du Hilfe bei der Einrichtung? Hier geht's zur ",
+        "support":"Support",
+        "supportText":"Etwas funktioniert nicht wie erwartet? Über deinen Shopware Account kannst du uns ein ",
+        "supportLink":"Ticket erstellen"
+    }
+}
