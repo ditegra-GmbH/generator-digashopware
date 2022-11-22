@@ -145,6 +145,28 @@ module.exports = class extends Generator {
                 shortname: name.toLowerCase(),
             });
 
+            // Info Block
+            this.fs.copyTpl(
+                this.templatePath('src/Resources/app/administration/src/component/diga-info/diga-info.html.twig'), 
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/app/administration/src/component/diga-info/diga-info.html.twig')
+            );
+            this.fs.copyTpl(
+                this.templatePath('src/Resources/app/administration/src/component/diga-info/index.js'), 
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/app/administration/src/component/diga-info/index.js')
+            );
+            this.fs.copyTpl(
+                this.templatePath('src/Resources/app/administration/src/snippet/de-DE.json'), 
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/app/administration/src/snippet/de-DE.json')
+            );
+            this.fs.copyTpl(
+                this.templatePath('src/Resources/app/administration/src/snippet/en-GB.json'), 
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/app/administration/src/snippet/en-GB.json')
+            );
+            this.fs.copyTpl(
+                this.templatePath('src/Resources/app/administration/src/main.js'), 
+                this.destinationPath(this.contextRoot + '/' +pluginName + '/src/Resources/app/administration/src/main.js')
+            );
+
             //UnitTest sample
             this.fs.copyTpl(
                 this.templatePath('tests/Services/SampleTest.php'),
