@@ -13,8 +13,8 @@ module.exports = class extends Generator {
             },
             {
                 type: "input",
-                name: "dockwareversion",
-                message: "Please provide your dockware version like 6.4.0.0 (default)",
+                name: "dockwareimage",
+                message: "Please provide your dockware image with like dockware/essentials:latest (default)",
                 store: true
             },
         ]);
@@ -23,9 +23,9 @@ module.exports = class extends Generator {
     writing() {
 
         let name = this.answers.name;
-        let version = this.answers.dockwareversion;
-        if(!version){
-            version = '6.4.0.0';
+        let image = this.answers.dockwareimage;
+        if(!image){
+            image = 'dockware/essentials:latest';
         }
         
         this.fs.copyTpl(
@@ -41,7 +41,7 @@ module.exports = class extends Generator {
             this.destinationPath(name + '/docker-compose.yml'),
             { 
                 containername: name,
-                version: version
+                image: image
             }
         );
 

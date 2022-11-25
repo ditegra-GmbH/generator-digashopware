@@ -2,7 +2,7 @@ version: "3"
 
 services:
     shopware:
-      image: dockware/dev:<%= version %>
+      image: dockware/<%= image %>
       container_name: <%= containername %>
       ports:
          - "80:80"
