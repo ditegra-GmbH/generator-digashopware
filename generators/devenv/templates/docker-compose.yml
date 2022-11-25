@@ -21,6 +21,8 @@ services:
          - XDEBUG_ENABLED=1  
          - XDEBUG_REMOTE_HOST=localhost
          - PHP_IDE_CONFIG=idekey=VSCODE
+         - PHP_VERSION=8.1
+        #  - APACHE_DOCROOT=/var/www/html/public
 volumes:
   db_volume:
     driver: local
