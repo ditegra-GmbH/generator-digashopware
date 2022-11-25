@@ -25,7 +25,7 @@ module.exports = class extends Generator {
         let name = this.answers.name;
         let image = this.answers.dockwareimage;
         if(!image){
-            image = 'dockware/essentials:latest';
+            image = 'essentials:latest';
         }
         
         this.fs.copyTpl(
