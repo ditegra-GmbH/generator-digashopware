@@ -17,6 +17,18 @@ module.exports = class extends Generator {
                 message: "Please provide your dockware image with like dockware/essentials:latest (default)",
                 store: true
             },
+            {
+                type: "input",
+                name: "phpversion",
+                message: "Please provide the PHP_VERSION (7.2, 7.4, 8.0 or 8.1) default 8.1",
+                store: true
+            },
+            {
+                type: "input",
+                name: "nodeversion",
+                message: "Please proivide the NODE_VERSION Version (14 or 16 are possible) defult 16",
+                store: true
+            },
         ]);
     }
 
@@ -27,7 +39,15 @@ module.exports = class extends Generator {
         if(!image){
             image = 'essentials:latest';
         }
-        
+
+        let phpv = this.answers.phpversion;
+        if(!phpv){
+            phpv = '8.1';
+        }
+        let nodev = this.answers.nodeversion;
+        if(!nodev){
+            nodev = '16';
+        }   
         this.fs.copyTpl(
             this.templatePath('diga.code-workspace'),
             this.destinationPath(name + '/' + name + '.code-workspace'));
@@ -41,7 +61,9 @@ module.exports = class extends Generator {
             this.destinationPath(name + '/docker-compose.yml'),
             { 
                 containername: name,
-                image: image
+                image: image,
+                phpversion: phpv,
+                nodeversion: nodev,
             }
         );
 
