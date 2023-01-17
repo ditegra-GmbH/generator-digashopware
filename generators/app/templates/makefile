@@ -19,6 +19,9 @@ dev: ## Installs all dev dependencies
 test: ## Starts all Tests
 	php ./vendor/bin/phpunit --configuration=./phpunit.xml
 
+php-cs-fixer: ## Fixes coding violations
+	./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix . -vv || true
+
 stan: ## Starts the PHPStan Analyser
 	php ./vendor/bin/phpstan --memory-limit=1G analyse .
 
