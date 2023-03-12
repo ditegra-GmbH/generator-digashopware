@@ -16,6 +16,12 @@ prod: ## Installs all production dependencies
 dev: ## Installs all dev dependencies
 	composer install
 
+prepe2e: ## prepare e2e testing
+	cd tests/e2e/ && touch .env
+	cd tests/e2e/ && echo "TESTSHOPURL='http://localhost'" > .env
+	cd tests/e2e/ && echo "ADMIN=''" >> .env
+	cd tests/e2e/ && echo "ADMINPSWD=''" >> .env
+
 test: ## Starts all Tests
 	php ./vendor/bin/phpunit --configuration=./phpunit.xml
 

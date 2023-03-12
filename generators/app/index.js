@@ -183,6 +183,24 @@ module.exports = class extends Generator {
                     name: pluginName,
                 }
             );
+
+            //e2e testfiles
+            this.fs.copyTpl(
+                this.templatePath('tests/e2e/README.md'),
+                this.destinationPath(this.contextRoot + '/' + pluginName + '/tests/e2e/README.md'),
+                { 
+                    name: pluginName,
+                }
+            );
+
+            this.fs.copyTpl(this.templatePath('tests/e2e/playwright.config.ts'), this.destinationPath(this.contextRoot + '/' +pluginName + '/tests/e2e/playwright.config.ts'));
+
+            this.fs.copyTpl(this.templatePath('tests/e2e/package.json'), this.destinationPath(this.contextRoot + '/' +pluginName + '/tests/e2e/package.json'));
+
+            this.fs.copyTpl(this.templatePath('tests/e2e/.gitignore'), this.destinationPath(this.contextRoot + '/' +pluginName + '/tests/e2e/.gitignore'));
+
+            this.fs.copyTpl(this.templatePath('tests/e2e/tests/app-features.spec.ts'), this.destinationPath(this.contextRoot + '/' +pluginName + '/tests/e2e/tests/app-features.spec.ts'));
+
         }
     }
 };

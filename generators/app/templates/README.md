@@ -23,6 +23,9 @@ _Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
 ## Dependencies:
 _Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor._
 
+## testing 
+- e2e testing with playwight see [README.md](tests/e2e/README.md)
+
 ## Technical concept:
 _Link:_
 
