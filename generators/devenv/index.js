@@ -67,35 +67,9 @@ module.exports = class extends Generator {
             }
         );
 
-        // Copy gulpfile & package.json the app zip creation helper tasks
-        this.fs.copyTpl(
-            this.templatePath('src/custom/gulpfile.js'), 
-            this.destinationPath(name + '/src/custom/gulpfile.js')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/custom/package.json'), 
-            this.destinationPath(name + '/src/custom/package.json')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/.vscode/launch.json'),
-            this.destinationPath(name + '/src/.vscode/launch.json')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/.vscode/sftp.json'),
-            this.destinationPath(name + '/src/.vscode/sftp.json')
-        );
-
         this.fs.copyTpl(
             this.templatePath('src/config/packages/twig.yaml'),
             this.destinationPath(name + '/src/config/packages/twig.yaml')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/config/packages/shopware.yaml'),
-            this.destinationPath(name + '/src/config/packages/shopware.yaml')
         );
 
         this.fs.copyTpl(
