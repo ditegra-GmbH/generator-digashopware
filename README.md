@@ -20,21 +20,21 @@ since we always create and copy the same files for new shopware projects, themes
 │   [projectname].code-workspace
 │   docker-compose.yml
 |   README.md
-│
-└───src/
-    │
-    └───.vscode/
-    |    │   launch.json
-    |    │   sftp.json
+│   digalocaldevcopy.sh
+|   digacloneconfig.yaml
+|
+└───src/    
+    |   messenger_consume.sh
+    |   scheduled_task_run.sh
     |    
     |___config
          │
          └───packages/
-             │   twig.yaml
+             │  twig.yaml
+             |  shopware.yaml
 ```
 
 *projectname == docker container name!
-
 
 
 ## Usage

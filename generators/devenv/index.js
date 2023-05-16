@@ -14,7 +14,7 @@ module.exports = class extends Generator {
             {
                 type: "input",
                 name: "dockwareimage",
-                message: "Please provide your dockware image with like essentials:latest (default)",
+                message: "Please provide your dockware image like essentials:latest (default)",
                 store: true
             },
             {
@@ -54,8 +54,19 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('README.md'),
-            this.destinationPath(name + '/README.md'));
+            this.destinationPath(name + '/README.md'),
+            {
+                containername: name,
+            });
         
+        this.fs.copyTpl(
+            this.templatePath('digalocaldevcopy.sh'),
+            this.destinationPath(name + '/digalocaldevcopy.sh'));
+        
+        this.fs.copyTpl(
+            this.templatePath('digacloneconfig.yaml'),
+            this.destinationPath(name + '/digacloneconfig.yaml'));
+
         this.fs.copyTpl(
             this.templatePath('docker-compose.yml'),
             this.destinationPath(name + '/docker-compose.yml'),
@@ -65,27 +76,6 @@ module.exports = class extends Generator {
                 phpversion: phpv,
                 nodeversion: nodev,
             }
-        );
-
-        // Copy gulpfile & package.json the app zip creation helper tasks
-        this.fs.copyTpl(
-            this.templatePath('src/custom/gulpfile.js'), 
-            this.destinationPath(name + '/src/custom/gulpfile.js')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/custom/package.json'), 
-            this.destinationPath(name + '/src/custom/package.json')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/.vscode/launch.json'),
-            this.destinationPath(name + '/src/.vscode/launch.json')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('src/.vscode/sftp.json'),
-            this.destinationPath(name + '/src/.vscode/sftp.json')
         );
 
         this.fs.copyTpl(
