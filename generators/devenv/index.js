@@ -14,7 +14,7 @@ module.exports = class extends Generator {
             {
                 type: "input",
                 name: "dockwareimage",
-                message: "Please provide your dockware image with like dockware/essentials:latest (default)",
+                message: "Please provide your dockware image like essentials:latest (default)",
                 store: true
             },
             {
