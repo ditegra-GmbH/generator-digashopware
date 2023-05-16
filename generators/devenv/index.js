@@ -54,8 +54,19 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('README.md'),
-            this.destinationPath(name + '/README.md'));
+            this.destinationPath(name + '/README.md'),
+            {
+                containername: name,
+            });
         
+        this.fs.copyTpl(
+            this.templatePath('digalocaldevcopy.sh'),
+            this.destinationPath(name + '/digalocaldevcopy.sh'));
+        
+        this.fs.copyTpl(
+            this.templatePath('digacloneconfig.yaml'),
+            this.destinationPath(name + '/digacloneconfig.yaml'));
+
         this.fs.copyTpl(
             this.templatePath('docker-compose.yml'),
             this.destinationPath(name + '/docker-compose.yml'),
@@ -70,6 +81,11 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('src/config/packages/twig.yaml'),
             this.destinationPath(name + '/src/config/packages/twig.yaml')
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/config/packages/shopware.yaml'),
+            this.destinationPath(name + '/src/config/packages/shopware.yaml')
         );
 
         this.fs.copyTpl(
