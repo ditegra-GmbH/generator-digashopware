@@ -29,6 +29,12 @@ module.exports = class extends Generator {
                 message: "Please proivide the NODE_VERSION Version (14 or 16 are possible) defult 16",
                 store: true
             },
+            {
+                type: "input",
+                name: "clone",
+                message: "are you going to prepare a new environment or to clone an existing one? (new/clone) default new",
+                store: true
+            },
         ]);
     }
 
@@ -52,21 +58,38 @@ module.exports = class extends Generator {
             this.templatePath('diga.code-workspace'),
             this.destinationPath(name + '/' + name + '.code-workspace'));
 
-        this.fs.copyTpl(
-            this.templatePath('README.md'),
-            this.destinationPath(name + '/README.md'),
-            {
-                containername: name,
-            });
-        
-        this.fs.copyTpl(
-            this.templatePath('digalocaldevcopy.sh'),
-            this.destinationPath(name + '/digalocaldevcopy.sh'));
-        
-        this.fs.copyTpl(
-            this.templatePath('digacloneconfig.yaml'),
-            this.destinationPath(name + '/digacloneconfig.yaml'));
+        let clone = this.answers.clone;
+        if(!clone){
+            clone = 'new';
+        }   
 
+        if(clone == 'new'){
+            this.fs.copyTpl(
+                this.templatePath('README-new.md'),
+                this.destinationPath(name + '/README.md'),
+                {
+                    containername: name,
+                });
+        }
+
+        if(clone == 'clone'){
+            
+            this.fs.copyTpl(
+                this.templatePath('README-clone.md'),
+                this.destinationPath(name + '/README.md'),
+                {
+                    containername: name,
+                });
+
+            this.fs.copyTpl(
+                this.templatePath('digalocaldevcopy.sh'),
+                this.destinationPath(name + '/digalocaldevcopy.sh'));
+            
+            this.fs.copyTpl(
+                this.templatePath('digacloneconfig.yaml'),
+                this.destinationPath(name + '/digacloneconfig.yaml'));            
+        }
+    
         this.fs.copyTpl(
             this.templatePath('docker-compose.yml'),
             this.destinationPath(name + '/docker-compose.yml'),

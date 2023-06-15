@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [0.1.2] - 15.06.2023
+- add switch so files for new or clone environment are prepared
+
 ## [0.1.1] - 16.05.2023
 - added files for clone steps and extended readme
 

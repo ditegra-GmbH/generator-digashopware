@@ -22,7 +22,14 @@ connect to container with VSCode and open terminal
 
 ## create mysql DB for defaul installation
 
-CREATE DATABASE ***shopware*** utf8mb4_general_ci
+create manually via http://localhost/adminer.php
+    
+    CREATE DATABASE shopware utf8mb4_general_ci
+
+or run
+
+    docker exec -d <%= containername %> mysql -h localhost -u root -proot -e "CREATE DATABASE shopware COLLATE utf8mb4_general_ci"
+
 
 ## on host environment
 
@@ -45,9 +52,9 @@ install base shopware 6 version
 
     bin/console system:setup
 
-    follow the instructions to create the env file!
+follow the instructions to create the env file!
 
-    bin/console system:install --shop-name=<%= containername %> --shop-email=digadev@ditegra.de --shop-locale=de-DE --shop-currency=CHF
+    bin/console system:install --shop-name=<%= containername %> --shop-email=digadev@ditegra.de --shop-locale=de-DE --shop-currency=EUR
 
 
 # IMPORTANT: copy data from lastpass to digacloneconfig.yaml
